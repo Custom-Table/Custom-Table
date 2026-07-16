@@ -3,50 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لوحة التحكم - لافوتنا</title>
+    <title>لوحة التحكم - </title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* تنسيقات خاصة بلوحة التحكم متوافقة تماماً مع الجوال */
         body { background-color: #f4f7f6; }
-        .admin-container {
-            max-width: 500px; /* لتبدو ممتازة على الجوال */
-            margin: 30px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        .admin-header {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #364858;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        .form-group input, .form-group textarea, .form-group select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-family: inherit;
-        }
-        .submit-btn {
-            width: 100%;
-            background-color: #364858;
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            font-weight: bold;
-        }
+        .admin-container { max-width: 500px; margin: 30px auto; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .admin-header { text-align: center; margin-bottom: 20px; color: #364858; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-family: inherit; }
+        .submit-btn { width: 100%; background-color: #364858; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 16px; cursor: pointer; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -70,24 +36,23 @@
 
             <div class="form-group">
                 <label for="productDescription">الوصف</label>
-                <textarea id="productDescription" rows="4" placeholder="اكتب تفاصيل ومقاسات المنتج هنا..."></textarea>
+                <textarea id="productDescription" rows="3" placeholder="تفاصيل ومقاسات المنتج..."></textarea>
             </div>
 
             <div class="form-group">
-                <label for="productImage">صورة المنتج</label>
-                <input type="file" id="productImage" accept="image/*" required>
+                <label for="productImageUrl">رابط صورة المنتج (URL)</label>
+                <input type="url" id="productImageUrl" placeholder="https://example.com/image.jpg" required>
+                <small style="color: gray; font-size: 12px;">انسخ رابط الصورة من أي موقع والصقه هنا</small>
             </div>
 
             <button type="submit" class="submit-btn">حفظ وإضافة المنتج</button>
         </form>
     </div>
 
-    <script>
-        // هنا سيتم ربط الفورم لاحقاً بقاعدة البيانات (Backend)
-        document.getElementById('addProductForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // يمنع إعادة تحميل الصفحة
-            alert('تم تجهيز الواجهة بنجاح! سيتم حفظ البيانات عندما نقوم بربط قاعدة البيانات في الخطوة القادمة.');
-        });
-    </script>
+    <!-- مكتبات Firebase الأساسية وقاعدة البيانات -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <!-- ربط ملف الجافاسكربت الخاص بنا -->
+    <script src="script.js"></script>
 </body>
 </html>

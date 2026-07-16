@@ -7,17 +7,35 @@
     <link rel="stylesheet" href="style.css">
     <style>
         body { background-color: #f4f7f6; }
-        .admin-container { max-width: 500px; margin: 30px auto; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        
+        /* تصميم شاشة تسجيل الدخول */
+        .login-container { max-width: 400px; margin: 100px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; }
+        
+        /* تصميم لوحة التحكم (مخفية في البداية) */
+        .admin-container { max-width: 500px; margin: 30px auto; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); display: none; }
+        
         .admin-header { text-align: center; margin-bottom: 20px; color: #364858; }
-        .form-group { margin-bottom: 15px; }
+        .form-group { margin-bottom: 15px; text-align: right; }
         .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
         .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-family: inherit; }
         .submit-btn { width: 100%; background-color: #364858; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 16px; cursor: pointer; font-weight: bold; }
+        .submit-btn:hover { background-color: #2c3a47; }
     </style>
 </head>
 <body>
 
-    <div class="admin-container">
+    <!-- شاشة تسجيل الدخول -->
+    <div class="login-container" id="loginContainer">
+        <h2 class="admin-header">تسجيل الدخول للمسؤول</h2>
+        <div class="form-group">
+            <input type="password" id="secretPin" placeholder="أدخل الرمز السري هنا..." style="text-align: center; font-size: 18px; letter-spacing: 2px;">
+        </div>
+        <button class="submit-btn" onclick="checkPassword()">دخول</button>
+        <p id="errorMessage" style="color: red; margin-top: 10px; display: none;">الرمز السري غير صحيح!</p>
+    </div>
+
+    <!-- لوحة التحكم الفعلية (مخفية) -->
+    <div class="admin-container" id="adminDashboard">
         <h2 class="admin-header">إضافة منتج جديد</h2>
         
         <form id="addProductForm">
@@ -48,6 +66,25 @@
             <button type="submit" class="submit-btn">حفظ وإضافة المنتج</button>
         </form>
     </div>
+
+    <!-- كود التحقق من الرقم السري -->
+    <script>
+        function checkPassword() {
+            const pin = document.getElementById('secretPin').value;
+            
+            // 🔥 يمكنك تغيير الرمز السري (1234) من هنا إلى أي رقم تريده
+            const correctPin = "1234"; 
+
+            if (pin === correctPin) {
+                // إخفاء شاشة تسجيل الدخول وإظهار لوحة التحكم
+                document.getElementById('loginContainer').style.display = 'none';
+                document.getElementById('adminDashboard').style.display = 'block';
+            } else {
+                // إظهار رسالة الخطأ
+                document.getElementById('errorMessage').style.display = 'block';
+            }
+        }
+    </script>
 
     <!-- مكتبات Firebase الأساسية وقاعدة البيانات -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>

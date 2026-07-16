@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ج. كود الطلب عبر الواتساب (يعمل في كل الصفحة)
     // ----------------------------------------------------
     // ضع رقمك الفعلي هنا (مثال: 966500000000)
-    const phoneNumber = "9665XXXXXXXX"; 
+    const phoneNumber = "966506394690"; 
     
     // نستخدم طريقة ذكية لمراقبة النقرات حتى للمنتجات التي يتم إضافتها لاحقاً من الداتابيس
     document.body.addEventListener('click', function(e) {

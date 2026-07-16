@@ -1,5 +1,4 @@
 // 1. إعدادات فايربيس (ضع الكود الذي نسخته من موقع فايربيس هنا بدلاً من النجوم)
-import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCfXbg5Yje-AvuSw5MPN2wU2h7NnxHZUec",
@@ -10,7 +9,6 @@ const firebaseConfig = {
   appId: "1:856732153510:web:11b816c92532b26ac46667"
 };
 
-const app = initializeApp(firebaseConfig);
 
 
 // تهيئة الاتصال بفايربيس

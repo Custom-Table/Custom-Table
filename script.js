@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target && e.target.classList.contains('whatsapp-btn')) {
             const productCard = e.target.closest('.product-card');
             const productName = productCard.getAttribute('data-name');
-            const message = `مرحباً لافوتنا، أريد الاستفسار أو الطلب بخصوص: ${productName}`;
+            const message = `مرحباً تفصيل طاولات، أريد الاستفسار أو الطلب بخصوص: ${productName}`;
             const encodedMessage = encodeURIComponent(message);
             window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
         }
